@@ -1,0 +1,25 @@
+s=input()
+n=len(s)
+is_pal=True
+is_mir=True
+pairs ={
+    'A': 'A', 'H': 'H', 'I': 'I', 'M': 'M', 'O': 'O', 'T': 'T',
+    'U': 'U', 'V': 'V', 'W': 'W', 'X': 'X', 'Y': 'Y', '1': '1', '8': '8',
+    'E': '3', 'J': 'L', 'S': '2', 'Z': '5'
+}
+for i in range(n):
+    left =s[i]
+    right=s[n - 1 - i]
+    if left !=right:
+        is_pal=False
+    if left not in pairs or pairs[left] !=right:
+        is_mir=False
+
+if is_pal and is_mir:
+    print(f'"{s}" is a mirrored palindrome.')
+elif is_pal:
+    print(f'"{s}" is a regular palindrome.')
+elif is_mir:
+    print(f'"{s}" is a mirrored string.')
+else:
+    print(f'"{s}" is not a palindrome.')
